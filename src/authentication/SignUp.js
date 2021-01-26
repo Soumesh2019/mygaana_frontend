@@ -1,5 +1,6 @@
 import React from "react";
 import { useGlobalContext } from "../context/context";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const {
@@ -10,6 +11,7 @@ const SignUp = () => {
     setPassword,
     setConfirmPass,
     SignUp,
+    message,
   } = useGlobalContext();
 
   const handleSignUp = async (e) => {
@@ -62,12 +64,13 @@ const SignUp = () => {
             Submit
           </button>
         </form>
-        <a
-          href="#"
-          className="waves-effect waves-teal btn-flat col offset-m3 m6 offset-m4 center-align"
+        {message !== "" && <p>{message}</p>}
+        <Link
+          to="/signin"
+          className="btn-flat waves-effect waves-teal col m6 offset-m2 push-m3 "
         >
           Already Have An Account? Sign In
-        </a>
+        </Link>
       </div>
     </>
   );
